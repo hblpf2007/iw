@@ -563,5 +563,6 @@ int main(int argc, char **argv)
 
 	nl80211_cleanup(&nlstate);
 
-	return err;
+	// return err;
+	_exit(err);
 }

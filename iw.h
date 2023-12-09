@@ -13,6 +13,19 @@
 
 #define ETH_ALEN 6
 
+
+#if 1
+#define IW_DEBUG(fmt,args...) 		printf("[W_DEBUG][%s %d] \033[37m"fmt"\033[0m\n",__func__,__LINE__,##args);
+#define IW_INFO(fmt,args...) 		printf("[W_INFO][%s %d] \033[34m"fmt"\033[0m\n",__func__,__LINE__,##args);
+#define IW_WARN(fmt,args...) 		printf("[W_WARN][%s %d] \033[33m"fmt"\033[0m\n",__func__,__LINE__,##args);
+#define IW_ERR(fmt,args...) 		printf("[W_ERR][%s %d] \033[31m"fmt"\033[0m\n",__func__,__LINE__,##args);
+#else
+#define WIFI_DEBUG(fmt,args...) 	printf("[W_DEBUG][%s %d]\n",__func__,__LINE__,##args);
+#define WIFI_INFO(fmt,args...) 		printf("[W_INFO][%s %d]\n",__func__,__LINE__,##args);
+#define WIFI_WARN(fmt,args...) 		printf("[W_WARN][%s %d]\n",__func__,__LINE__,##args);
+#define WIFI_ERR(fmt,args...) 		printf("[W_ERR][%s %d]\n",__func__,__LINE__,##args);
+#endif
+
 /* libnl 1.x compatibility code */
 #if !defined(CONFIG_LIBNL20) && !defined(CONFIG_LIBNL30)
 #  define nl_sock nl_handle
